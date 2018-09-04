@@ -20,14 +20,14 @@
 --
 CREATE DATABASE apidb;
 USE apidb;
-DROP TABLE IF EXISTS `people`;
+DROP TABLE IF EXISTS `cars`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `people` (
+CREATE TABLE `cars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `age` int(11) NOT NULL,
-  `occupation` varchar(45) DEFAULT NULL,
+  `year` int(11) NOT NULL,
+  `country` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,9 +36,9 @@ CREATE TABLE `people` (
 -- Dumping data for table `people`
 --
 
-LOCK TABLES `people` WRITE;
+LOCK TABLES `cars` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (1,'Steve Martin',73,'comedian'),(2,'Johnny Depp',55,'actor'),(3,'Sammy Hagar',70,'musician'),(4,'Elvis Presley',42,'musician'),(5,'Joe Johnson',25,'driver'),(6,'Sarah Andrews',31,'consultant'),(7,'Samuel L Jackson',69,'actor'),(8,'Steve Wozniak',68,'programmer'),(9,'Ada Lovelace',36,'programmer'),(10,'Grace Hopper',85,'programmer'),(11,'Alan Turing',41,'programmer');
+INSERT INTO `cars` VALUES (1,'Toyota Camry',2018,'Japan'),(2,'Honda Civic',2007,'Japan'),(3,'BMW',2001,'Germany'),(4,'Audi A4',2012,'Germany'),(5,'Dodge Challenger',2017,'U.S'),(6,'Ford Explorer',2009,'U.S'),(7,'Mercedes Benz C Class',2013,'Germany'),(8,'Jeep Wrangler',2009,'U.S'),(9,'Ada Lovelace',36,'programmer'),(10,'Grace Hopper',85,'programmer'),(11,'Alan Turing',41,'programmer');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
