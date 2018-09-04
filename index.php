@@ -66,6 +66,15 @@ $app->put('/cars/{id}', function (Request $request, Response $response, array $a
 });
 //Update car by id
 
+$app->delete('/cars/{id}', function (Request $request, Response $response, array $args) {
+  $id = $args['id'];
+  $this->logger->addInfo("DELETE /cars/".$id);
+  $car = $this->db->exec('DELETE FROM cars where id='.$id);
+  $jsonResponse = $response->withJson($car);
+  return;
+});
+//Delete car by id
+
 $container = $app->getContainer();
 $container['logger'] = function($c) {
     $logger = new \Monolog\Logger('my_logger');
