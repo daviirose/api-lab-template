@@ -43,7 +43,29 @@ $app->get('/cars/{id}', function (Request $request, Response $response, array $a
 $app->put('/cars/{id}', function (Request $request, Response $response, array $args) {
     $id = $args['id'];
     $this->logger->addInfo("PUT /cars/".$id);
-    
+
+    // build query string
+   $updateString = "UPDATE cars SET ";
+   $fields = $request->getParsedBody();
+   $keysArray = array_keys($fields);
+   $last_key = end($keysArray);
+   foreach($fields as $field => $value) {
+     $updateString = $updateString . "$field = '$value'";
+     if ($field != $last_key) {
+       // conditionally add a comma to avoid sql syntax problems
+       $updateString = $updateString . ", ";
+     }
+   }
+   $updateString = $updateString . " WHERE id = $id;";
+   // execute query
+   $this->db->exec($updateString);
+   // return updated record
+   $car = $this->db->query('SELECT * from cars where id='.$id)->fetch();
+   $jsonResponse = $response->withJson($car);
+   return $jsonResponse;
+});
+//Update car by id
+
 $container = $app->getContainer();
 $container['logger'] = function($c) {
     $logger = new \Monolog\Logger('my_logger');
