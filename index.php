@@ -32,6 +32,13 @@ $app->get('/cars', function (Request $request, Response $response) {
     return $jsonResponse;
 }); //First Endpoint (Get cars)
 
+$app->get('/cars/{id}', function (Request $request, Response $response, array $args) {
+    $id = $args['id'];
+    $this->logger->addInfo("GET /cars/".$id);
+    $car = $this->db->query('SELECT * from cars where id='.$id)->fetch();
+    $jsonResponse = $response->withJson($car);
+    return $jsonResponse;
+}); //Get Person by Id
 
 $container = $app->getContainer();
 $container['logger'] = function($c) {
