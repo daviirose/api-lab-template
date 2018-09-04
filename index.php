@@ -38,8 +38,12 @@ $app->get('/cars/{id}', function (Request $request, Response $response, array $a
     $car = $this->db->query('SELECT * from cars where id='.$id)->fetch();
     $jsonResponse = $response->withJson($car);
     return $jsonResponse;
-}); //Get Person by Id
+}); //Get car by Id
 
+$app->put('/cars/{id}', function (Request $request, Response $response, array $args) {
+    $id = $args['id'];
+    $this->logger->addInfo("PUT /cars/".$id);
+    
 $container = $app->getContainer();
 $container['logger'] = function($c) {
     $logger = new \Monolog\Logger('my_logger');
