@@ -38,7 +38,7 @@ CREATE TABLE `cars` (
 
 LOCK TABLES `cars` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `cars` VALUES (1,'Toyota Camry',2018,'Japan'),(2,'Honda Civic',2007,'Japan'),(3,'BMW',2001,'Germany'),(4,'Audi A4',2012,'Germany'),(5,'Dodge Challenger',2017,'U.S'),(6,'Ford Explorer',2009,'U.S'),(7,'Mercedes Benz C Class',2013,'Germany')
+INSERT INTO `cars` VALUES (1,'Toyota Camry',2018,'Japan'),(2,'Honda Civic',2007,'Japan'),(3,'BMW',2001,'Germany'),(4,'Audi A4',2012,'Germany'),(5,'Dodge Challenger',2017,'U.S'),(6,'Ford',2009,'U.S'),(7,'Mercedes Benz C Class',2013,'Germany')
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
