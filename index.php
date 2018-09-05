@@ -1,4 +1,4 @@
-$app->run(); //This tells PHP to run the slim app
+<?php
 require './vendor/autoload.php';
 $db = function ($c) {
     $db = $c['settings']['db'];
@@ -7,6 +7,6 @@ $db = function ($c) {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
-  };
+};
 $app = (new Davian\api\App($db))->get();
 $app->run();
