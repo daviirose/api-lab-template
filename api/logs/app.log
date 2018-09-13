@@ -1,0 +1,3 @@
+[2018-09-13 12:31:28] my_logger.INFO: GET /cars [] []
+[2018-09-13 12:32:58] my_logger.INFO: GET /cars [] []
+[2018-09-13 12:35:58] my_logger.INFO: GET /cars [] []
