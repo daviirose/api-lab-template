@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#peopleForm").submit(function(event) {
+  $("#carsForm").submit(function(event) {
     var form = $(this);
     event.preventDefault();
     $.ajax({
@@ -7,7 +7,7 @@ $(document).ready(function() {
       url: "http://localhost:8080/api/cars",
       data: form.serialize(), // serializes the form's elements.
       success: function(data) {
-        window.location.replace("http://localhost:8080/api");
+        window.location.replace("http://localhost:8080/client");
       }
     });
   });
