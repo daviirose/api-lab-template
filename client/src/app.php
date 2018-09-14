@@ -36,7 +36,7 @@ class App
        $ch = curl_init();
 
        //Set the URL that you want to GET by using the CURLOPT_URL option.
-       curl_setopt($ch, CURLOPT_URL, "http://localhost/api/cars");
+       curl_setopt($ch, CURLOPT_URL, "http://localhost/api/".$path);
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
@@ -87,12 +87,14 @@ class App
      });
      $app->get('/cars/{id}/edit', function (Request $request, Response $response, array $args) {
          $id = $args['id'];
+
          $responseRecord = makeApiRequest('cars/'.$id);
          $templateVariables = [
            "type" => "edit",
-           "title" => "Edit User",
+           "title" => "Edit Car",
            "car" => $responseRecord
          ];
+
          return $this->renderer->render($response, "/carsEditForm.html", $templateVariables);
 
      });

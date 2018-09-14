@@ -5,7 +5,21 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 </head>
-<script src="../public/script.js"></script>
+<script src="../../public/script.js"></script>
+<h1><?php echo $title; ?></h1>
 
-<p>TODO: crete a form that edits the people record passed into this file.
-Take a look at the peopleForm.html file for inspiration, but make sure that the initial values are from the person object passed in.</p>
+<form data-id="<?php echo $car['id'] ?>" id='carsEditForm'>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" type="text" class="form-control" id="name" value="<?php echo $car['name']; ?>">
+  </div>
+  <div class="form-group">
+    <label for="country">Country</label>
+    <input name="country" type="text" class="form-control" id="country" value="<?php echo $car['country']; ?>">
+  </div>
+  <div class="form-group">
+    <label for="year">Year</label>
+    <input name="year" type="text" class="form-control" id="year" value="<?php echo $car['year']; ?>">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

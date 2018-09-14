@@ -15,9 +15,19 @@ $(document).ready(function() {
     alert( "TODO: build submit handler.  See peopleForm submit handler for inspiration " );
 
   });
-  //$( ".deletebtn" ).click(function() {
-  //alert( "TODO: build delete handler with confirmation dialog See here for confirmation details:  https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm" );
-//});
+  $("#carsEditForm").submit(function(event) {
+    var form = $(this);
+    var carsID = $(this).attr("data-id");
+    event.preventDefault();
+    $.ajax({
+      type: "PUT",
+      url: "http://localhost:8080/api/cars/" + carsID,
+      data: form.serialize(),
+      success: function(data) {
+        window.location.replace("http://localhost:8080/client");
+      }
+    });
+  });
 $(".deletebtn").click(function() {
   var delButton = $(this).attr("data-id");
   if (window.confirm("Are you sure?")){
